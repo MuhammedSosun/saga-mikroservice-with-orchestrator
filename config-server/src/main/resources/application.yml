@@ -1,0 +1,16 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: conf-service
+
+  profiles:
+    active: native
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/MuhammedSosun/saga-mikroservice-with-orchestrator.git
+          search-paths: config
