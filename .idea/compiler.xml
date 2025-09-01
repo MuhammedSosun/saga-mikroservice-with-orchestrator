@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="config-eureka" />
         <module name="config-server" />
       </profile>
       <profile name="Annotation profile for mikroservice-project" enabled="true">
@@ -34,6 +35,7 @@
       <module name="Orchestrator" options="-parameters" />
       <module name="Order" options="-parameters" />
       <module name="Payment" options="-parameters" />
+      <module name="config-eureka" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="eureka-service" options="-parameters" />
       <module name="saga" options="" />

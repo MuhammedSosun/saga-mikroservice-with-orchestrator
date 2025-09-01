@@ -1,3 +1,11 @@
+server:
+  port: 8111
+
+#bu benim default yml dosyam fakat eğer farklı ortamlar tercih edersem bu sefer ortam gerekliliklerine göre benim
+#configurasyonumu sağlamam gerekiyor örneğin db bilgileri port bilgileri vs. ama biz default olana ortak alanları yazıp
+#diğer ortamlarada gerekli olanları sadece yazarsak işimizi daha esnek yaparız
+#ortama göre çalıştırmak(run) için mvn spring-boot:run -Dspring-boot.run.profiles=dev örenğin bu şekilde
+#veya jar dosyası bir diğer seçenekte application.yml dosyamıza active profilimizi yazıp direk run edebiliriz.
 spring:
   data:
     mongodb:
@@ -7,6 +15,7 @@ spring:
       username: rootuser
       password: rootpass
       database: springboot_mongo
+
 
   kafka:
     bootstrap-servers:
@@ -20,11 +29,14 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
-server:
-  port: 8111
+
 
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
