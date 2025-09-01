@@ -6,6 +6,7 @@ server:
 #diğer ortamlarada gerekli olanları sadece yazarsak işimizi daha esnek yaparız
 #ortama göre çalıştırmak(run) için mvn spring-boot:run -Dspring-boot.run.profiles=dev örenğin bu şekilde
 #veya jar dosyası bir diğer seçenekte application.yml dosyamıza active profilimizi yazıp direk run edebiliriz.
+#
 spring:
   data:
     mongodb:
@@ -40,3 +41,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    prefer-ip-address: true
