@@ -4,12 +4,12 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: inventory-service
-          uri: lb://inventory-service
+        - id: inventory
+          uri: lb://inventory
           predicates:
             - Path=/rest/api/inventory/**
-        - id: order-service
-          uri: lb://order-service
+        - id: order
+          uri: lb://order
           predicates:
             - Path=/rest/api/order/**
 
