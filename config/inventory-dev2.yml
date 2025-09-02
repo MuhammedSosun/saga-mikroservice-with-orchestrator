@@ -1,5 +1,5 @@
 server:
-  port: 8111
+  port: 8121
 
 #bu benim default yml dosyam fakat eğer farklı ortamlar tercih edersem bu sefer ortam gerekliliklerine göre benim
 #configurasyonumu sağlamam gerekiyor örneğin db bilgileri port bilgileri vs. ama biz default olana ortak alanları yazıp
