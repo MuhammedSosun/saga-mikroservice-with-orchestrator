@@ -17,6 +17,7 @@
 		<module>orchestrator</module>
 		<module>config-server</module>
 		<module>config-eureka</module>
+		<module>gateaway</module>
 	</modules>
 
 
