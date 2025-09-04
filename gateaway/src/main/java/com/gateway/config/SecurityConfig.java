@@ -18,5 +18,4 @@ public class SecurityConfig {
                         .anyExchange().permitAll());
         return http.build();
     }
-
 }

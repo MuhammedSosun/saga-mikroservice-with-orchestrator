@@ -13,6 +13,8 @@ public class CheckFailedInventory {
 
     private Long orderId;
     private Long customerId;
+    private String errorMessage;
     private List<ItemDto> items;
+
 
 }

@@ -13,8 +13,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -58,7 +61,7 @@ public class InventoryServiceImpl implements InventoryService {
     }
     private void publishInventoryFailed(InventoryCheckEvent event, String reason) {
         CheckFailedInventory payload = new CheckFailedInventory(
-                event.getOrderId(), event.getCustomerId(), reason, event.getItems()
+                event.getOrderId(), event.getCustomerId(), reason,  event.getItems()
         );
         kafkaTemplate.send(INVENTORY_CHECK_FAILED_TOPIC, payload);
     }
@@ -69,5 +72,11 @@ public class InventoryServiceImpl implements InventoryService {
 
         log.info(" Inventory created {}", inventory.toString());
         return inventoryMapper.toDto(inventoryRepository.insert(inventory));
+    }
+
+    public List<InventoryDto> findAll(){
+        List<Inventory> inventoryList = inventoryRepository.findAll();
+
+        return inventoryList.stream().map(inventoryMapper::toDto).toList();
     }
 }
