@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: gateway
+    name: gateaway
   cloud:
     gateway:
       routes:
@@ -16,7 +16,3 @@ spring:
           predicates:
             - Path=/rest/api/order/**
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
