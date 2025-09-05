@@ -9,4 +9,5 @@ public interface InventoryController {
 
     ResponseEntity<InventoryDto> createInventory(InventoryDto inventoryDto);
     ResponseEntity<List<InventoryDto>> findAll();
+    ResponseEntity<InventoryDto> getInventory(String productId);
 }

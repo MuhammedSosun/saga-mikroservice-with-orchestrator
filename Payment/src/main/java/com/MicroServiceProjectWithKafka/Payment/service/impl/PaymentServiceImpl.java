@@ -44,14 +44,14 @@ public class PaymentServiceImpl implements PaymentService {
                     paymentRepository.save(payment);
                 }
                 kafkaTemplate.send(PAYMENT_PROCESSED_TOPIC, paymentProcessEvent);
-                log.info("PaymentProcessEvent sent succesfully for order: {}", paymentProcessEvent);
+                log.info("PaymentProcessEvent sent successfully for order: {}", paymentProcessEvent);
             }else {
 
                 PaymentFailedEvent  paymentFailedEvent = new PaymentFailedEvent(
                         event.getOrderId(),
                         event.getCustomerId(),
                         event.getAmount(),
-                        "Payment proccess failed",
+                        "Payment process failed",
                         event.getItems()
                 );
                 kafkaTemplate.send(PAYMENT_FAILED_TOPIC, paymentFailedEvent);

@@ -27,8 +27,11 @@ public class InventoryControllerImpl implements InventoryController {
     public ResponseEntity<List<InventoryDto>> findAll() {
         return ResponseEntity.ok(inventoryService.findAll());
     }
-
-
+    @GetMapping("/find/{productId}")
+    @Override
+    public ResponseEntity<InventoryDto> getInventory(@PathVariable String productId) {
+        return ResponseEntity.ok(inventoryService.getInventory(productId));
+    }
 
 
 }

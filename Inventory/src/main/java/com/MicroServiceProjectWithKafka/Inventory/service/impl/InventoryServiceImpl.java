@@ -65,7 +65,11 @@ public class InventoryServiceImpl implements InventoryService {
         );
         kafkaTemplate.send(INVENTORY_CHECK_FAILED_TOPIC, payload);
     }
-
+    public InventoryDto getInventory(String productId) {
+        Optional<Inventory> getOpt = inventoryRepository.getInventoryByProductId(productId);
+        Inventory inventory = getOpt.get();
+        return  inventoryMapper.toDto(inventory);
+    }
 
     public InventoryDto createInventory(InventoryDto inventoryDto) {
         Inventory inventory = inventoryMapper.toEntity(inventoryDto);

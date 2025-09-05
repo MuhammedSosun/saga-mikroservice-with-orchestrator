@@ -10,4 +10,5 @@ public interface InventoryService {
     public InventoryDto createInventory(InventoryDto inventoryDto);
     public void checkInventory(InventoryCheckEvent event);
     public List<InventoryDto> findAll();
+    public InventoryDto getInventory(String productId);
 }

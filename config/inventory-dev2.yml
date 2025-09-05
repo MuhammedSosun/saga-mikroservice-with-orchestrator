@@ -8,11 +8,13 @@ server:
 #veya jar dosyası bir diğer seçenekte application.yml dosyamıza active profilimizi yazıp direk run edebiliriz.
 #
 spring:
+  application:
+    name: inventory-dev2
+
   data:
     mongodb:
-      authentication-database: admin
       host: localhost
       port: 27018
       username: rootuser2
       password: rootpass2
-      database: springboot_mongo
+
