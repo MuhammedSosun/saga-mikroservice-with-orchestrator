@@ -51,6 +51,4 @@ public class KafkaProducerConfig {
         return new NewTopic("inventory-check", 1, (short) 1);
     }
 
-
-
 }
