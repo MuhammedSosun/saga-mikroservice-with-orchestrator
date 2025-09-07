@@ -8,7 +8,7 @@ spring:
     gateway:
       routes:
         - id: inventory
-          uri: lb://inventory
+          uri: lb://inventory-dev2
           predicates:
             - Path=/rest/api/inventory/**
         - id: order
